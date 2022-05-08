@@ -1,0 +1,5 @@
+1. style all of the different toast notifcation 
+2. check and test the delay 
+3. look into the specifications
+4. maybe i do not need borders
+5. consider using theming for styled components
