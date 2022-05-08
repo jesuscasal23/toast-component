@@ -5,10 +5,10 @@ import nextId from 'react-id-generator'
 const useToast = () => {
   const { setToastState } = React.useContext(ToastComponentContext)
 
-  const toast = (message, duration) => {
+  const toast = (title, message, duration, type) => {
     setToastState(prevState => [
       ...prevState,
-      { message, duration: duration || 2000, id: nextId() },
+      { title, message, type, duration: duration || 2000, id: nextId() },
     ])
   }
 

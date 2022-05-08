@@ -8,7 +8,8 @@ import {
 } from './styledComponents'
 import { ToastComponentContext } from './ToastContext'
 import checkCircle from './icons/checkCircle.svg'
-import infoCircle from './icons/checkCircle.svg'
+import infoCircle from './icons/infoCircle.svg'
+import banIcon from './icons/banIcon.svg'
 
 const ToastNotification = ({ toastNotificationProps }) => {
   const { setToastState } = useContext(ToastComponentContext)
@@ -18,25 +19,38 @@ const ToastNotification = ({ toastNotificationProps }) => {
       setToastState(prevState =>
         prevState.filter(entry => entry.id !== toastNotificationProps.id)
       )
-    }, 20000)
+    }, toastNotificationProps.duration)
   }, [
     toastNotificationProps.duration,
     setToastState,
     toastNotificationProps.id,
   ])
 
-  const determineCorrectIcon = () => {}
+  const determineCorrectIcon = type => {
+    if (type === 'danger') {
+      return banIcon
+    }
+
+    if (type === 'warning') {
+      return infoCircle
+    }
+
+    return checkCircle
+  }
 
   return (
-    <NotificationContainer type={'danger'}>
-      <ToastIcons src={checkCircle} alt='check circle icon' />
+    <NotificationContainer type={toastNotificationProps.type}>
+      <ToastIcons
+        src={determineCorrectIcon(toastNotificationProps.type)}
+        alt='check circle icon'
+      />
       <div>
         <TitleContainer>
-          <ToastNotificationTitle type={'danger'}>
+          <ToastNotificationTitle type={toastNotificationProps.type}>
             Success
           </ToastNotificationTitle>
         </TitleContainer>
-        <ToastNotificationMessage type={'danger'}>
+        <ToastNotificationMessage type={toastNotificationProps.type}>
           {toastNotificationProps.message}
         </ToastNotificationMessage>
       </div>

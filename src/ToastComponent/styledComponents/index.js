@@ -22,6 +22,7 @@ export const FixedPositionWrapper = styled.div`
   position: fixed;
   top: ${props => (props.top ? '1%' : '100%')};
   right: ${props => (props.right ? '1%' : '100%')};
+  z-index: 10000;
 `
 
 export const NotificationContainer = styled.div`
@@ -39,6 +40,7 @@ export const NotificationContainer = styled.div`
   font-style: normal;
   padding: 12px 6px;
   display: flex;
+  margin-bottom: 20px;
 `
 
 export const ToastIcons = styled.img`

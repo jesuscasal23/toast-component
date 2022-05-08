@@ -4,7 +4,7 @@ export const ToastComponentContext = createContext({ show: true })
 
 const ToastContextProvider = ({ children }) => {
   const [toastState, setToastState] = useState([])
-  console.log('rerender')
+
   return (
     <ToastComponentContext.Provider value={{ toastState, setToastState }}>
       {children}
