@@ -8,6 +8,11 @@ const CenteredCard = styled(Card)`
   margin-top: 10%;
 `
 
+const formLayout = {
+  labelCol: { span: 6 },
+  wrapperCol: { span: 18 },
+}
+
 function App() {
   const [formInstance] = Form.useForm()
   const toast = useToast()
@@ -15,17 +20,11 @@ function App() {
   const handleSubmit = async () => {
     const formValues = await formInstance.getFieldsValue(true)
 
-    toast(
-      formValues.title,
-      formValues.message || 'This is a success notification',
-      formValues.duration || '8000',
-      formValues.type
-    )
-  }
-
-  const formLayout = {
-    labelCol: { span: 6 },
-    wrapperCol: { span: 18 },
+    toast({
+      message: formValues.message,
+      duration: formValues.duration,
+      type: formValues.type,
+    })
   }
 
   return (
@@ -37,9 +36,6 @@ function App() {
           initialValues={{
             type: 'success',
           }}>
-          <Form.Item name='title' label='title'>
-            <Input />
-          </Form.Item>
           <Form.Item name='message' label='message'>
             <Input />
           </Form.Item>

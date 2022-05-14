@@ -1,14 +1,35 @@
-import React from 'react'
+import { useContext } from 'react'
 import { ToastComponentContext } from '../context/ToastContextProvider'
 import nextId from 'react-id-generator'
 
-const useToast = () => {
-  const { setToastState } = React.useContext(ToastComponentContext)
+const defaultToastProps = {
+  message: 'This is a toast notification',
+  duration: 6000,
+  type: 'success',
+}
 
-  const toast = (title, message, duration, type) => {
+const removedEmptyObjectProperties = object => {
+  const objectCopy = { ...object }
+  Object.keys(objectCopy).forEach(key => {
+    if (!objectCopy[key]) {
+      delete objectCopy[key]
+    }
+  })
+
+  return objectCopy
+}
+
+const useToast = () => {
+  const { setToastState } = useContext(ToastComponentContext)
+
+  const toast = toastConfig => {
     setToastState(prevState => [
       ...prevState,
-      { title, message, type, duration: duration || 2000, id: nextId() },
+      {
+        id: nextId(),
+        ...defaultToastProps,
+        ...removedEmptyObjectProperties(toastConfig),
+      },
     ])
   }
 
