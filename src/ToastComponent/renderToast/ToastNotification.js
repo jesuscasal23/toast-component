@@ -71,7 +71,7 @@ const ToastNotification = ({ toastNotificationProps }) => {
               {toastVariations[toastNotificationProps.type].title}
             </ToastNotificationTitle>
             <CloseIcon
-              onClick={removeToastNotification}
+              onClick={() => removeToastNotification()}
               src={toastVariations[toastNotificationProps.type].closeIcon}
               alt='close icon'
             />

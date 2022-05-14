@@ -8,7 +8,7 @@ const defaultToastProps = {
   type: 'success',
 }
 
-const removedEmptyObjectProperties = object => {
+const removeEmptyObjectProperties = object => {
   const objectCopy = { ...object }
   Object.keys(objectCopy).forEach(key => {
     if (!objectCopy[key]) {
@@ -28,7 +28,7 @@ const useToast = () => {
       {
         id: nextId(),
         ...defaultToastProps,
-        ...removedEmptyObjectProperties(toastConfig),
+        ...removeEmptyObjectProperties(toastConfig),
       },
     ])
   }

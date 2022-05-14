@@ -5,10 +5,17 @@ export const FixedPositionWrapper = styled.div`
   top: ${props => (props.top ? '1%' : '100%')};
   right: ${props => (props.right ? '1%' : '100%')};
   z-index: 10000;
+
+  @media (max-width: 600px) {
+    top: 90%;
+    right: 50%;
+    transform: translateX(50%);
+  }
 `
 
 export const NotificationContainer = styled.div`
-  width: 550px;
+  width: 95vw;
+  max-width: 550px;
   background-color: ${props => props.theme.backgroundColor || '#6fcf97'};
   border-width: 1px;
   border-style: solid;
