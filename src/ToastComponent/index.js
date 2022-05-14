@@ -1,12 +1,12 @@
 import React from 'react'
-import ToastContextProvider from './ToastContext'
-import RenderToastNotifications from './RenderToastNotifications'
+import ToastContextProvider from './context/ToastContextProvider'
+import RenderToast from './renderToast'
 
 const ToastComponent = props => {
   return (
     <ToastContextProvider>
       {/* notifications */}
-      <RenderToastNotifications />
+      <RenderToast />
 
       {/* react app */}
       {props.children}

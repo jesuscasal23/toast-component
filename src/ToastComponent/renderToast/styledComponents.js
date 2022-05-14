@@ -53,6 +53,8 @@ export const TitleContainer = styled.div`
   display: flex;
 `
 
+export const CloseIcon = styled.img``
+
 export const ToastNotificationTitle = styled.h6`
   font-weight: 600;
   font-size: 16px;

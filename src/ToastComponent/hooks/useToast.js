@@ -1,5 +1,5 @@
 import React from 'react'
-import { ToastComponentContext } from './ToastContext'
+import { ToastComponentContext } from '../context/ToastContextProvider'
 import nextId from 'react-id-generator'
 
 const useToast = () => {
