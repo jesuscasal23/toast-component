@@ -28,34 +28,32 @@ function App() {
   }
 
   return (
-    <div className='App'>
-      <CenteredCard>
-        <Form
-          form={formInstance}
-          {...formLayout}
-          initialValues={{
-            type: 'success',
-          }}>
-          <Form.Item name='message' label='message'>
-            <Input />
-          </Form.Item>
+    <CenteredCard>
+      <Form
+        form={formInstance}
+        {...formLayout}
+        initialValues={{
+          type: 'success',
+        }}>
+        <Form.Item name='message' label='message'>
+          <Input />
+        </Form.Item>
 
-          <Form.Item name='duration' label='duration'>
-            <Input />
-          </Form.Item>
+        <Form.Item name='duration' label='duration'>
+          <Input />
+        </Form.Item>
 
-          <Form.Item label='type' name='type'>
-            <Radio.Group>
-              <Radio.Button value='success'>Success</Radio.Button>
-              <Radio.Button value='warning'>Warning</Radio.Button>
-              <Radio.Button value='danger'>Danger</Radio.Button>
-            </Radio.Group>
-          </Form.Item>
-        </Form>
+        <Form.Item label='type' name='type'>
+          <Radio.Group>
+            <Radio.Button value='success'>Success</Radio.Button>
+            <Radio.Button value='warning'>Warning</Radio.Button>
+            <Radio.Button value='danger'>Danger</Radio.Button>
+          </Radio.Group>
+        </Form.Item>
+      </Form>
 
-        <Button onClick={handleSubmit}>show toast notification</Button>
-      </CenteredCard>
-    </div>
+      <Button onClick={handleSubmit}>show toast notification</Button>
+    </CenteredCard>
   )
 }
 

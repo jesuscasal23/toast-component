@@ -1,4 +1,2 @@
-add an x to close a toast notification 
-see how to use theming in styled componets
-
-// closing should kill the timer
+// problems
+if there are more than 5 notification they are no longer visible

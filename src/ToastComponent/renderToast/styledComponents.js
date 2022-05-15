@@ -1,20 +1,44 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export const FixedPositionWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
   position: fixed;
-  top: ${props => (props.top ? '1%' : '100%')};
-  right: ${props => (props.right ? '1%' : '100%')};
   z-index: 10000;
+  top: 85%;
+  right: 50%;
+  transform: translate(50%, -50%);
 
   @media (max-width: 600px) {
-    top: 90%;
-    right: 50%;
-    transform: translateX(50%);
+    top: 50%;
+    transform: translate(50%, -50%);
+  }
+`
+
+const slideIn = keyframes`
+  0% {
+    transform: translate(100%);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0;
+  }
+
+  40% {
+    transform: translate(-5%);
+    opacity: 50% 
+  }
+
+  100% {
+    transform: translate(0%);
+    opacity: 1;
   }
 `
 
 export const NotificationContainer = styled.div`
-  width: 95vw;
+  width: 85vw;
   max-width: 550px;
   background-color: ${props => props.theme.backgroundColor || '#6fcf97'};
   border-width: 1px;
@@ -28,6 +52,7 @@ export const NotificationContainer = styled.div`
   padding: 12px 6px;
   display: flex;
   margin-bottom: 20px;
+  animation: ${slideIn} 0.5s ease-in 1;
 `
 
 export const ToastIcons = styled.img`
