@@ -6,6 +6,7 @@ import {
   ToastNotificationMessage,
   TitleContainer,
   CloseIcon,
+  TitleAndTextContainer,
 } from './styledComponents'
 import { ToastComponentContext } from '../context/ToastContextProvider'
 import checkCircle from '../icons/checkCircle.svg'
@@ -65,7 +66,7 @@ const ToastNotification = ({ toastNotificationProps }) => {
           src={toastVariations[toastNotificationProps.type].icon}
           alt='check circle icon'
         />
-        <div style={{ width: '100%' }}>
+        <TitleAndTextContainer>
           <TitleContainer>
             <ToastNotificationTitle>
               {toastVariations[toastNotificationProps.type].title}
@@ -79,7 +80,7 @@ const ToastNotification = ({ toastNotificationProps }) => {
           <ToastNotificationMessage>
             {toastNotificationProps.message}
           </ToastNotificationMessage>
-        </div>
+        </TitleAndTextContainer>
       </NotificationContainer>
     </ThemeProvider>
   )

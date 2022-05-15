@@ -1,21 +1,5 @@
 import styled, { keyframes } from 'styled-components'
 
-export const FixedPositionWrapper = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-start;
-  position: fixed;
-  z-index: 10000;
-  top: 85%;
-  right: 50%;
-  transform: translate(50%, -50%);
-
-  @media (max-width: 600px) {
-    top: 50%;
-    transform: translate(50%, -50%);
-  }
-`
-
 const slideIn = keyframes`
   0% {
     transform: translate(100%);
@@ -34,6 +18,22 @@ const slideIn = keyframes`
   100% {
     transform: translate(0%);
     opacity: 1;
+  }
+`
+
+export const FixedPositionWrapper = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  position: fixed;
+  z-index: 10;
+  bottom: 5%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  /* why ? */
+  height: 1px;
+  /*  */
+  @media (max-width: 600px) {
+    top: 55%;
   }
 `
 
@@ -59,6 +59,10 @@ export const ToastIcons = styled.img`
   width: 39px;
   height: 39px;
   margin-right: 8px;
+`
+
+export const TitleAndTextContainer = styled.div`
+  width: '100%';
 `
 
 export const TitleContainer = styled.div`

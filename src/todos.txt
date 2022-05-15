@@ -1,2 +1,4 @@
 // problems
-if there are more than 5 notification they are no longer visible
+z index should be configurable
+why does 1px work
+will throw errors if incorrect props are passed
